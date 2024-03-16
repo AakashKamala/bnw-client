@@ -20,7 +20,7 @@ const Email = () => {
     console.log(formData.userId);
     console.log(formData.email);
     try {
-      const response = await fetch(`http://localhost:5000/api/auth/email`, {
+      const response = await fetch(`${baseURL}/api/auth/email`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

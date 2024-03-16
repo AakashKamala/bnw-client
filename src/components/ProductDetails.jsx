@@ -16,7 +16,7 @@ function ProductDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/products/${_id}`);
+        const response = await axios.get(`${baseURL}/api/products/${_id}`);
         setProduct(response.data);
         setTotal(response.data.price);
       } catch (error) {
@@ -64,7 +64,7 @@ function ProductDetails() {
     }
     else{
       try {
-        const res=await fetch(`http://localhost:5000/api/cart`,{
+        const res=await fetch(`${baseURL}/api/cart`,{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
