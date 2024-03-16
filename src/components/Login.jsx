@@ -106,7 +106,7 @@ const Login = () => {
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    console.log(user);
+    // console.log(user);
 
     try {
         const response=await fetch(`${baseURL}/api/auth/login`,{
@@ -117,13 +117,13 @@ const Login = () => {
         body: JSON.stringify(user),
       })
 
-      console.log("login form",response);
+      // console.log("login form",response);
 
       const res_data=await response.json();
 
       if(response.ok)
       {
-        console.log("res from server",res_data);
+        // console.log("res from server",res_data);
         storeTokenInLS(res_data.token);
         setUser({email:"", password:""});
         // toast.success("login successful");
@@ -131,12 +131,12 @@ const Login = () => {
       }
       else{
         // toast.error(res_data.extraDetails?res_data.extraDetails:res_data.message);
-        console.log("Invalid credentials");
+        // console.log("Invalid credentials");
       }
 
-      console.log(response);
+      // console.log(response);
     } catch (error) {
-      console.log("login ",error);
+      // console.log("login ",error);
     }
 
   }

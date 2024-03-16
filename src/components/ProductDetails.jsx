@@ -21,7 +21,7 @@ function ProductDetails() {
         setProduct(response.data);
         setTotal(response.data.price);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
@@ -51,7 +51,7 @@ function ProductDetails() {
 
   const {user}=useAuth();
   const navigate=useNavigate();
-  console.log(user._id)
+  // console.log(user._id)
 
   const formData={
     userId:user._id,
@@ -73,7 +73,7 @@ function ProductDetails() {
           body: JSON.stringify(formData),
         })
         // console.log(formData)
-        console.log(res);
+        // console.log(res);
         if(res.status==204)
         {
           alert("item already in cart");
@@ -82,15 +82,15 @@ function ProductDetails() {
         }
         if(res.ok)
         {
-          console.log("item added to cart successfully");
+          // console.log("item added to cart successfully");
           alert("item added to cart successfully");
           navigate("/cart");
         }
         else{
-          console.log("couldn't add to cart");
+          // console.log("couldn't add to cart");
         }
       } catch (error) {
-        console.log("error from add to cart: ",error);
+        // console.log("error from add to cart: ",error);
       }
     }
   }

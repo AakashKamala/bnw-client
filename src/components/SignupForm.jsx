@@ -48,7 +48,7 @@ function SignupForm() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(formData);
+        // console.log(formData);
 
         try {
             const response=await fetch(`${baseURL}/api/auth`,{
@@ -75,8 +75,8 @@ function SignupForm() {
               dateOfBirth: '',
               gender: '',
               password: ''});
-            console.log(res_data.token);
-            console.log(res_data);
+            // console.log(res_data.token);
+            // console.log(res_data);
             navigate("/email", { state: { userId: res_data.userId }});
             }
             else{
@@ -84,7 +84,7 @@ function SignupForm() {
             }
       
           } catch (error) {
-            console.log("signup ",error);
+            // console.log("signup ",error);
           }
       
 

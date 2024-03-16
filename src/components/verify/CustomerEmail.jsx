@@ -6,7 +6,7 @@ import { baseURL } from '../../../url';
 const CustomerEmail = () => {
   const location = useLocation();
   const Id = location.state.userId;
-  console.log(Id)
+  // console.log(Id)
   const [formData, setFormData] = useState({ userId: Id, email: '' });
 
   const handleChange = (e) => {
@@ -18,8 +18,8 @@ const CustomerEmail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData.userId);
-    console.log(formData.email);
+    // console.log(formData.userId);
+    // console.log(formData.email);
     try {
       const response = await fetch(`${baseURL}/api/auth/email`, {
         method: "PUT",
@@ -30,7 +30,7 @@ const CustomerEmail = () => {
       });
 
       const res_data = await response.json();
-      console.log(response)
+      // console.log(response)
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/checkout');
@@ -38,7 +38,7 @@ const CustomerEmail = () => {
         alert("error while email");
       }
     } catch (error) {
-      console.log("error during email: ", error);
+      // console.log("error during email: ", error);
     }
   };
 

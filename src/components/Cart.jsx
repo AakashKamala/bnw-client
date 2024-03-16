@@ -57,7 +57,7 @@ function Cart() {
         setProductIds(data);
       })
       .catch(error => {
-        console.error('Error fetching product IDs:', error);
+        // console.error('Error fetching product IDs:', error);
       });
   }, [userId]);
 
