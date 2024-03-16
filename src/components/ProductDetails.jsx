@@ -5,6 +5,7 @@ import './ProductDetails.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from './verify/Auth';
 import { useNavigate } from 'react-router-dom';
+import { baseURL } from '../../url';
 
 function ProductDetails() {
   const { _id } = useParams();

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { baseURL } from '../../../url';
 
 const CustomerEmail = () => {
   const location = useLocation();

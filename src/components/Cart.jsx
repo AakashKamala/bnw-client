@@ -39,6 +39,7 @@
 
 
 import { useEffect, useState } from 'react';
+import { baseURL } from '../../url';
 
 function Cart() {
   const [productIds, setProductIds] = useState([]);

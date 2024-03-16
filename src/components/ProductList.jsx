@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./ProductList.css"
+import { baseURL } from '../../url';
 
 const defaultProductList = [];
 
