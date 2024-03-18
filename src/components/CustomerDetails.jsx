@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import "./SignupForm.css"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from './verify/Auth';
@@ -93,7 +92,6 @@ function CustomerDetails() {
 
     return (
         <div>
-            <p>Have an account, <Link to='/login'><span>Login</span></Link></p>
             <div className='signup-container'>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Name:</label>

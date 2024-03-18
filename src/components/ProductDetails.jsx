@@ -1,40 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, createContext, useContext } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './ProductDetails.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from './verify/Auth';
-import { useNavigate } from 'react-router-dom';
 import { baseURL } from '../../url';
+
+export const OrderContext = createContext(null);
 
 function ProductDetails() {
   const { _id } = useParams();
   const [product, setProduct] = useState(null);
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSize, setSelectedSize] = useState('S');
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const { setOrderData } = useContext(OrderContext);
 
   useEffect(() => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+
     const fetchData = async () => {
       try {
         const response = await axios.get(`${baseURL}/api/products/${_id}`);
         setProduct(response.data);
         setTotal(response.data.price);
+        setOrderData(prevOrderData => ({
+          ...prevOrderData,
+          productId: _id,
+          totalPrice: response.data.price,
+          userId: user._id,
+          selectedSize: 'S', // Set default size in orderData
+        }));
       } catch (error) {
-        // console.error(error);
+        // Handle error
       }
     };
 
     fetchData();
-
-  }, [_id]);
+  }, [_id, setOrderData, user, navigate]);
 
   useEffect(() => {
     setTotal(quantity * (product ? product.price : 0));
-  }, [quantity, product]);
+    setOrderData(prevOrderData => ({
+      ...prevOrderData,
+      total,
+      totalPrice: total * quantity,
+      quantity
+    }));
+  }, [quantity, product, total, setOrderData]);
 
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
+    setOrderData(prevOrderData => ({
+      ...prevOrderData,
+      selectedSize: size
+    }));
   };
 
   const handleIncrement = () => {
@@ -49,51 +74,49 @@ function ProductDetails() {
     }
   };
 
-  const {user}=useAuth();
-  const navigate=useNavigate();
-  // console.log(user._id)
-
-  const formData={
-    userId:user._id,
-    productId:_id
-  };
-
-  const handleCart=async()=>{
-    if(!user)
-    {
+  const handleCart = async () => {
+    if (!user) {
       navigate("/signup");
-    }
-    else{
+    } else {
+      const formData = {
+        userId: user._id,
+        productId: _id,
+        size: selectedSize,
+        quantity: quantity,
+        totalPrice: total * quantity
+      };
+
+      setOrderData(prevOrderData => ({
+        ...prevOrderData,
+        ...formData
+      }));
+
       try {
-        const res=await fetch(`${baseURL}/api/cart`,{
+        const res = await fetch(`${baseURL}/api/cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        })
-        // console.log(formData)
-        // console.log(res);
-        if(res.status==204)
-        {
-          alert("item already in cart");
+        });
+
+        if (res.status === 204) {
+          alert("Item already in cart");
           navigate("/cart");
           return;
         }
-        if(res.ok)
-        {
-          // console.log("item added to cart successfully");
-          alert("item added to cart successfully");
+
+        if (res.ok) {
+          alert("Item added to cart successfully");
           navigate("/cart");
-        }
-        else{
-          // console.log("couldn't add to cart");
+        } else {
+          // Handle other responses
         }
       } catch (error) {
-        // console.log("error from add to cart: ",error);
+        // Handle error
       }
     }
-  }
+  };
 
   if (!product) {
     return <div>Loading...</div>;
