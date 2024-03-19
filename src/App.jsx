@@ -15,6 +15,7 @@ import CustomerEmail from './components/verify/CustomerEmail';
 import Logout from './components/Logout';
 
 import { useAuth } from './components/verify/Auth';
+import EditCustomerDetails from './components/EditCustomerDetails';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/mobile" element={<Mobile />} />
           <Route path="/customer-details" element={<CustomerDetails />} />
           <Route path="/customer-email" element={<CustomerEmail />} />
+          <Route path="/edit-customer-details" element={<EditCustomerDetails />}/>
         </Routes>
       </div>
     </Router>

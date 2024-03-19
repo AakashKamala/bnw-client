@@ -8,7 +8,7 @@ const BuyForm = () => {
   const navigate=useNavigate();
 
   const handleEdit=()=>{
-    navigate("/customer-details")
+    navigate("/edit-customer-details")
   };
 
   const handlePay=()=>{
