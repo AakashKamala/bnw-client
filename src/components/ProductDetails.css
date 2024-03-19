@@ -1,4 +1,4 @@
-.product-details-container {
+/* .product-details-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -90,5 +90,108 @@
   
   .details div span {
     margin: 0 10px;
+  }
+   */
+
+   .product-details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-details {
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-details img {
+    max-width: 50%;
+    margin-right: 20px;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  .details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .details p {
+    margin-bottom: 10px;
+  }
+  
+  .details select {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  .details .cartnbuy-button {
+    padding: 10px 20px;
+    background-color: #212121;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  /* .details button:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+  } */
+  
+  .details button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .details button:first-child {
+    margin-right: 0;
+  }
+  
+  .details div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .details div button {
+    font-size: 1.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0 5px;
+    background-color: #fff;
+    color: #121212;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 0.3px solid #212121;
+  }
+  
+  .details div button:hover {
+    background-color: #121212;
+    color:#fff;
+  }
+  
+  .details div button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .details div span {
+    margin: 0 10px;
+  }
+  
+  /* Conditional styling for selected size */
+  .details .size-options button.selected,
+  .details .size-options button[selected='true'] {
+    background-color: #212121;
+    color: white;
   }
   

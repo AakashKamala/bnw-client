@@ -1,4 +1,4 @@
-.signup-container {
+.email-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,15 +6,7 @@
     margin-top: 20px;
 }
 
-
-.signup-container h2 {
-    color: #212121;
-    text-align: center;
-    margin-top: 10px;
-    padding-bottom: 20px;
-}
-
-.signup-container label {
+label {
     display: block;
     font-size: 18px;
     margin-bottom: 5px;
@@ -22,10 +14,7 @@
     color: black;
 }
 
-.signup-container input[type="text"],
-input[type="number"],
-input[type="email"],
-select {
+input[type="email"]{
     width: calc(100% - 40px);
     padding: 8px;
     margin-left: 20px;
@@ -35,15 +24,12 @@ select {
     color: #121212;
 }
 
-.signup-container input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-select:focus {
+input[type="email"]:focus{
     outline: none;
     border-color: #212121;
 }
 
-.signup-container input[type="submit"] {
+input[type="submit"] {
     background-color: #212121;
     color: #ffffff;
     padding: 10px 20px;
@@ -54,7 +40,7 @@ select:focus {
     margin-left: 20px;
 }
 
-.signup-container input[type="submit"]:hover {
+input[type="submit"]:hover {
     transform: translateY(-5px);
     transition: transform 0.3s ease;
 }

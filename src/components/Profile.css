@@ -1,0 +1,26 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin-top: 20px;
+}
+
+.profile-container h1 {
+    color: #212121;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+
+.logout-button{
+    padding: 10px 20px;
+    background-color: #212121;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}

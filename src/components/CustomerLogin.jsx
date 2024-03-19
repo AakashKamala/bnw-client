@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { baseURL } from "../../url";
 import "./Login.css"; // Import CSS file
 
-const Login = () => {
+const CustomerLogin = () => {
 
     const navigate = useNavigate();
     if (useAuth.user) {
@@ -46,7 +46,7 @@ const Login = () => {
             if (response.ok) {
                 storeTokenInLS(res_data.token);
                 setUser({ email: "", password: "" });
-                navigate("/");
+                navigate("/buy");
                 window.location.reload();
             } else {
                 console.error("Invalid credentials");
@@ -97,4 +97,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default CustomerLogin;

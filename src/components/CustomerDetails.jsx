@@ -3,8 +3,16 @@ import "./SignupForm.css"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from './verify/Auth';
 import { baseURL } from '../../url';
+import { Link } from 'react-router-dom';
 
 function CustomerDetails() {
+
+    const navigate = useNavigate();
+    if(useAuth.user)
+    {
+        navigate("/buy")
+    }
+
     const [formData, setFormData] = useState({
         name: '',
         address:{
@@ -40,9 +48,6 @@ function CustomerDetails() {
             }));
         }
     };
-    
-
-    const navigate = useNavigate();
 
 
     const handleSubmit = async(e) => {
@@ -92,6 +97,7 @@ function CustomerDetails() {
 
     return (
         <div>
+            <p>Have am account, <Link to='/customer-login'><span>Login</span></Link></p>
             <div className='signup-container'>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Name:</label>

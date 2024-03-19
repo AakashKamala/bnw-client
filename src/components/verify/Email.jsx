@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { baseURL } from '../../../url';
+import "./Email.css"
+import { toast } from 'react-toastify';
 
 const Email = () => {
   const location = useLocation();
@@ -34,8 +36,10 @@ const Email = () => {
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/');
+        window.location.reload();
+        // toast.success("sign up successful")
       } else {
-        alert("error while email");
+        toast.error("error while email");
       }
     } catch (error) {
       // console.log("error during email: ", error);
@@ -43,7 +47,7 @@ const Email = () => {
   };
 
   return (
-    <div>
+    <div className='email-container'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='email'>Email:</label>
         <input type='email' name='email' id='email' value={formData.email} onChange={handleChange} />

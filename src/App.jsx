@@ -13,9 +13,12 @@ import Mobile from './components/verify/Mobile';
 import CustomerDetails from './components/CustomerDetails';
 import CustomerEmail from './components/verify/CustomerEmail';
 import Logout from './components/Logout';
+import Profile from './components/Profile';
 
 import { useAuth } from './components/verify/Auth';
 import EditCustomerDetails from './components/EditCustomerDetails';
+import CustomerLogin from './components/CustomerLogin';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -38,8 +41,11 @@ function App() {
           <Route path="/mobile" element={<Mobile />} />
           <Route path="/customer-details" element={<CustomerDetails />} />
           <Route path="/customer-email" element={<CustomerEmail />} />
+          <Route path="/customer-login" element={<CustomerLogin />} />
           <Route path="/edit-customer-details" element={<EditCustomerDetails />}/>
+          <Route path="/profile" element={<Profile />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { baseURL } from '../../../url';
+import "./Email.css"
 
 const CustomerEmail = () => {
   const location = useLocation();
@@ -34,6 +35,7 @@ const CustomerEmail = () => {
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/checkout');
+        window.location.reload();
       } else {
         alert("error while email");
       }
@@ -43,7 +45,7 @@ const CustomerEmail = () => {
   };
 
   return (
-    <div>
+    <div className='email-container'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='email'>Email:</label>
         <input type='email' name='email' id='email' value={formData.email} onChange={handleChange} />

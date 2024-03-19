@@ -1,4 +1,29 @@
-.pay-button:hover{
+.buy-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin-top: 20px;
+}
+
+.buy-form-container button {
+    background-color: #212121;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.buy-form-container button:hover {
     transform: translateY(-5px);
     transition: transform 0.3s ease;
+}
+
+.buy-form-container h2 {
+    color: #212121;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
 }

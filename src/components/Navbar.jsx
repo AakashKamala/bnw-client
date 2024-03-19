@@ -26,7 +26,7 @@ function Navbar() {
             <NavLink to="/cart">Cart</NavLink>
           </li>
           {isLoggedIn?(<li>
-                            <NavLink to="/logout">Logout</NavLink>
+                            <NavLink to="/profile">Profile</NavLink>
                         </li>):(<>
                             <li>
                                 <NavLink to="/login">Login</NavLink>

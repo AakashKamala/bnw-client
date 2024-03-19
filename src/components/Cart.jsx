@@ -2,10 +2,19 @@ import { useEffect, useState } from 'react';
 import axios from 'axios'; // Import axios for making HTTP requests
 import { baseURL } from '../../url';
 import { useAuth } from './verify/Auth';
+import "./Cart.css"
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
-  const [products, setProducts] = useState([]); // Change state variable to hold products
+
   const { user } = useAuth();
+  const navigate=useNavigate();
+  if(!user)
+  {
+    navigate("/signup")
+  }
+
+  const [products, setProducts] = useState([]); // Change state variable to hold products
   const userId = user._id;
 
   useEffect(() => {
@@ -33,29 +42,30 @@ function Cart() {
   }, [userId]);
 
   return (
-    <div>
-      <h2>Products in Cart for User {userId}</h2>
-      <ul>
-        {/* Map through products and render their details */}
-        {products.map(product => (
-          <li key={product._id}>
-            <img src={product.image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-          </li>
-        ))}
-      </ul>
-      <div className="cart">
-        <h2>Shopping Cart</h2>
-        <div className="cart-total">
-          <p>Total: ${
-            // Calculate total price by summing up prices of all products
-            products.reduce((total, product) => total + product.price, 0)
-          }</p>
-          <button>Checkout</button>
-        </div>
+    <div className='product-container'>
+      <div className='product-list'>
+        {/* <h2>Products in Cart for User {userId}</h2> */}
+        <ul>
+          {/* Map through products and render their details */}
+          {products.map(product => (
+            <li className='product-card' key={product._id}>
+              <img className='product-image' src={product.image} alt={product.name} />
+              <h3 className='product-name'>{product.name}</h3>
+              <p>{product.description}</p>
+              <p className='product-price'>Price: ${product.price}</p>
+            </li>
+          ))}
+        </ul>
       </div>
+      <div className="cart">
+          <div className="cart-total">
+            <p>Total: ${
+              // Calculate total price by summing up prices of all products
+              products.reduce((total, product) => total + product.price, 0)
+            }</p>
+            <button className='checkout-button'>Checkout</button>
+          </div>
+        </div>
     </div>
   );
 }
