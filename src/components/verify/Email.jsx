@@ -36,7 +36,7 @@ const Email = () => {
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/');
-        window.location.reload();
+        // window.location.reload();
         // toast.success("sign up successful")
       } else {
         toast.error("error while email");

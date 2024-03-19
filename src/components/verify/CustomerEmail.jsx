@@ -35,7 +35,7 @@ const CustomerEmail = () => {
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/checkout');
-        window.location.reload();
+        // window.location.reload();
       } else {
         alert("error while email");
       }

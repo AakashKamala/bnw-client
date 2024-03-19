@@ -47,7 +47,7 @@ const Login = () => {
                 storeTokenInLS(res_data.token);
                 setUser({ email: "", password: "" });
                 navigate("/");
-                window.location.reload();
+                // window.location.reload();
             } else {
                 console.error("Invalid credentials");
             }

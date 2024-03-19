@@ -19,7 +19,7 @@ const Logout = () => {
 
   const handleLogout=async()=>{
     await LogoutUser();
-    window.location.reload();
+    // window.location.reload();
   }
 
   // return <Navigate to="/login" />;

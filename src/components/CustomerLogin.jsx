@@ -47,7 +47,7 @@ const CustomerLogin = () => {
                 storeTokenInLS(res_data.token);
                 setUser({ email: "", password: "" });
                 navigate("/buy");
-                window.location.reload();
+                // window.location.reload();
             } else {
                 console.error("Invalid credentials");
             }
