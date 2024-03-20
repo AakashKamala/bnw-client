@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom';
 function CustomerDetails() {
 
     const navigate = useNavigate();
-    if(useAuth.user)
-    {
-        navigate("/buy")
+    const { isLoggedIn } = useAuth();
+
+    // If the user is already logged in, redirect to home page
+    if (isLoggedIn) {
+        navigate("/");
     }
 
     const [formData, setFormData] = useState({

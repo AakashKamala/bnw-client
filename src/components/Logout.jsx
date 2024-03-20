@@ -5,13 +5,13 @@ import { useAuth } from "./verify/Auth";
 
 const Logout = () => {
 
-    const {LogoutUser}=useAuth();
-    const navigate=useNavigate();
+  const { isLoggedIn, LogoutUser } = useAuth();
+  // const navigate = useNavigate();
 
-    if(!useAuth.user)
-    {
-      navigate("/login");
-    }
+  // If the user is not logged in, redirect to the login page
+  if (!isLoggedIn) {
+      return <Navigate to="/login" />;
+  }
 
   // useEffect(()=>{
   //   LogoutUser();

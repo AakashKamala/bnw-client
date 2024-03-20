@@ -8,7 +8,10 @@ import "./Login.css"; // Import CSS file
 const CustomerLogin = () => {
 
     const navigate = useNavigate();
-    if (useAuth.user) {
+    const { isLoggedIn } = useAuth();
+
+    // If the user is already logged in, redirect to home page
+    if (isLoggedIn) {
         navigate("/");
     }
 

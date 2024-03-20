@@ -8,7 +8,10 @@ import "./Login.css"; // Import CSS file
 const Login = () => {
 
     const navigate = useNavigate();
-    if (useAuth.user) {
+    const { isLoggedIn } = useAuth();
+
+    // Redirect the user if already logged in
+    if (isLoggedIn) {
         navigate("/");
     }
 

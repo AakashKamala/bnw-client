@@ -11,9 +11,12 @@ const BuyForm = () => {
   const navigate = useNavigate();
   const { userId, productId, selectedSize, quantity, totalPrice} = useContext(OrderContext);
 
-  if (!user) {
-    navigate("/customer-details");
-  }
+  const { isLoggedIn } = useAuth();
+
+    // If the user is already logged in, redirect to home page
+    if (isLoggedIn) {
+        navigate("/");
+    }
 
   const {name, address}=user;
   const{house,locality,city,state,country,pincode}=address;

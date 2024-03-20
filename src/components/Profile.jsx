@@ -30,10 +30,12 @@ import Order from './Order';
 const Profile = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
-    if (!user) {
-        navigate("/login")
-    }
+    const { isLoggedIn } = useAuth();
 
+    // If the user is already logged in, redirect to home page
+    if (isLoggedIn) {
+        navigate("/");
+    }
       const {LogoutUser}=useAuth();
   
     const handleLogout=async()=>{
