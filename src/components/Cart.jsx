@@ -9,9 +9,11 @@ function Cart() {
 
   const { user } = useAuth();
   const navigate=useNavigate();
-  if(!user)
-  {
-    navigate("/signup")
+  const { isLoggedIn } = useAuth();
+
+  // If the user is already logged in, redirect to home page
+  if (isLoggedIn) {
+      navigate("/");
   }
 
   const [products, setProducts] = useState([]); // Change state variable to hold products
