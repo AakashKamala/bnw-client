@@ -1,8 +1,8 @@
 .buy-form-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 70vh;
+    /* align-items: center; */
+    /* height: 70vh; */
     margin-top: 20px;
 }
 
@@ -26,4 +26,12 @@
     text-align: center;
     margin-top: 10px;
     padding-bottom: 20px;
+}
+
+
+.details-container{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 20px;
 }

@@ -79,20 +79,20 @@ function Checkout() {
       totalPrice
     };
 
-    try {
-      console.log(orderData)
-      const response = await axios.post(`${baseURL}/api/orders`, orderData);
-      console.log(response)
+    // try {
+    //   console.log(orderData)
+    //   const response = await axios.post(`${baseURL}/api/orders`, orderData);
+    //   console.log(response)
 
-      if (response.status === 201) {
-        toast("order placed successfully");
-        navigate("/orders");
-      } else {
-        console.error("Error: Failed to save order data", response.data);
-      }
-    } catch (error) {
-      console.error("Error while processing payment:", error.response?.data || error.message);
-    }
+    //   if (response.status === 201) {
+    //     toast("order placed successfully");
+    //     navigate("/orders");
+    //   } else {
+    //     console.error("Error: Failed to save order data", response.data);
+    //   }
+    // } catch (error) {
+    //   console.error("Error while processing payment:", error.response?.data || error.message);
+    // }
   };
 
   return (

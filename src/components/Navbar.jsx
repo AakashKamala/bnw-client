@@ -22,22 +22,22 @@ function Navbar() {
           <span className="toggle-icon">{isNavOpen ? '×' : '☰'}</span>
         </div>
         <ul className={`nav-menu ${isNavOpen ? 'active' : ''}`}>
-          <li>
+          <li onClick={toggleNav}>
             <NavLink to="/cart">Cart</NavLink>
           </li>
-          {isLoggedIn?(<li>
+          {isLoggedIn?(<li onClick={toggleNav}>
                             <NavLink to="/profile">Profile</NavLink>
                         </li>):(<>
-                            <li>
+                            <li onClick={toggleNav}>
                                 <NavLink to="/login">Login</NavLink>
                             </li>
                         </>)}
-          <li>
+          {/* <li>
             <NavLink to="/orders">Orders</NavLink>
           </li>
           <li>
             <NavLink to="/search">Search</NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

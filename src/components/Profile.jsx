@@ -25,6 +25,7 @@ import { useAuth } from "./verify/Auth"
 import { useNavigate } from "react-router-dom";
 import Logout from "./Logout";
 import "./Profile.css"; // Import CSS file
+import Order from './Order';
 
 const Profile = () => {
     const { user } = useAuth();
@@ -44,6 +45,7 @@ const Profile = () => {
     return (
         <div className="profile-container">
             <h1>Profile</h1>
+            <Order />
             <button onClick={handleLogout} className='logout-button'>Logout</button>
         </div>
     )

@@ -3,7 +3,7 @@ import axios from 'axios'; // Import axios for making HTTP requests
 import { baseURL } from '../../url';
 import { useAuth } from './verify/Auth';
 import "./Cart.css"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Cart() {
 
@@ -49,23 +49,24 @@ function Cart() {
           {/* Map through products and render their details */}
           {products.map(product => (
             <li className='product-card' key={product._id}>
-              <img className='product-image' src={product.image} alt={product.name} />
-              <h3 className='product-name'>{product.name}</h3>
-              <p>{product.description}</p>
-              <p className='product-price'>Price: ${product.price}</p>
+              <Link to={`/product/${product._id}`}>
+                <img src={product.image} alt={product.name} className='product-image' />
+                <h3 className='product-name'>{product.name}</h3>
+                <p>{product.description}</p>
+                <p className='product-price'>${product.price}</p>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
-      <div className="cart">
-          <div className="cart-total">
-            <p>Total: ${
-              // Calculate total price by summing up prices of all products
-              products.reduce((total, product) => total + product.price, 0)
-            }</p>
-            <button className='checkout-button'>Checkout</button>
-          </div>
+      {/* <div className="cart">
+        <div className="cart-total">
+          <p>Total: ${
+            products.reduce((total, product) => total + product.price, 0)
+          }</p>
+          <button className='checkout-button'>Checkout</button>
         </div>
+      </div> */}
     </div>
   );
 }

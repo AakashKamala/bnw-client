@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { useAuth } from './verify/Auth';
 import axios from 'axios';
+import "./EditCustomerDetails.css"
+import { OrderContext } from './ProductDetails';
+import { baseURL } from '../../url';
+import { useNavigate } from 'react-router-dom';
 
 const EditCustomerDetails = () => {
     const { user } = useAuth();
+    const { userId, productId, selectedSize, quantity, totalPrice} = useContext(OrderContext);
     const [name, setName] = useState(user.name);
     const [address, setAddress] = useState(user.address);
+    const navigate=useNavigate();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -18,13 +25,14 @@ const EditCustomerDetails = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const updatedUser = { name, address };
-            await axios.put(`/api/users/${user._id}`, updatedUser);
+            const updatedUser = { name, address, userId, productId, size:selectedSize, quantity, totalPrice };
+            await axios.post(`${baseURL}/api/orders`, updatedUser);
             // Handle success
-            console.log('User details updated successfully');
+            console.log('order placed successfully');
+            navigate("/checkout")
         } catch (error) {
             // Handle error
-            console.error('Error updating user details:', error);
+            console.error('Error placing orders:', error);
         }
     };
 
@@ -102,7 +110,7 @@ const EditCustomerDetails = () => {
                         onChange={handleAddressChange}
                     />
                 </div>
-                <button type="submit">Update</button>
+                <button className='pay-button' type="submit">Proceed to payment</button>
             </form>
         </div>
     );
