@@ -19,10 +19,20 @@ import { useAuth } from './components/verify/Auth';
 import EditCustomerDetails from './components/EditCustomerDetails';
 import CustomerLogin from './components/CustomerLogin';
 import Footer from './components/Footer';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
 
-  const {isLoggedIn}=useAuth();
+  // const {isLoggedIn}=useAuth();
+
+  const { isLoggedIn } = useAuth();
+  const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
+
+  // Subscribe to changes in isLoggedIn
+  useEffect(() => {
+    setIsAuthenticated(isLoggedIn);
+  }, [isLoggedIn]);
 
   return (
     <Router>
@@ -34,7 +44,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/buy" element={<BuyForm />} />
-          {!isLoggedIn?(<><Route path="/login" element={<Login />} />
+          {!isAuthenticated?(<><Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignupForm />} /></>):
           <Route path="/logout" element={<Logout />} />}
           <Route path="/email" element={<Email />} />
