@@ -44,9 +44,12 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/buy" element={<BuyForm />} />
-          {!isAuthenticated?(<><Route path="/login" element={<Login />} />
+          {/* {!isAuthenticated?(<><Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignupForm />} /></>):
-          <Route path="/logout" element={<Logout />} />}
+          <Route path="/logout" element={<Logout />} />} */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/email" element={<Email />} />
           <Route path="/mobile" element={<Mobile />} />
           <Route path="/customer-details" element={<CustomerDetails />} />
