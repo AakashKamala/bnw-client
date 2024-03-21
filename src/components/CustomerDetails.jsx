@@ -150,9 +150,9 @@ function CustomerDetails() {
         fetchUserData(); // Fetch the latest user data before proceeding
         
         // Redirect to the home page if the user is logged in
-        if (isLoggedIn) {
-            navigate("/");
-        }
+        // if (isLoggedIn) {
+        //     navigate("/");
+        // }
     }, [isLoggedIn, fetchUserData, navigate]);
 
     const [formData, setFormData] = useState({
