@@ -13,9 +13,13 @@ function ProductDetails() {
   const [selectedSize, setSelectedSize] = useState('S');
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
-  const { user } = useAuth();
+  const { user, fetchUserData } = useAuth();
   const navigate = useNavigate();
   const { setOrderData } = useContext(OrderContext);
+
+  useEffect(() => {
+    fetchUserData(); // Fetch the latest user data before proceeding
+  }, [fetchUserData]);
 
   useEffect(() => {
     const fetchData = async () => {

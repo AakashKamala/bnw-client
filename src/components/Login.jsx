@@ -8,12 +8,11 @@ import "./Login.css"; // Import CSS file
 const Login = () => {
 
     const navigate = useNavigate();
-    const { isLoggedIn } = useAuth();
+    // const { isLoggedIn } = useAuth();
 
-    // Redirect the user if already logged in
-    if (isLoggedIn) {
-        navigate("/");
-    }
+    // if (isLoggedIn) {
+    //     navigate("/");
+    // }
 
     const [user, setUser] = useState({
         email: "",
