@@ -91,11 +91,11 @@ import Footer from './components/Footer';
 
 function App() {
   const { isLoggedIn } = useAuth();
-  const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
+  const [key, setKey] = useState(0);
 
-  // Subscribe to changes in isLoggedIn
+  // Re-render the Login component whenever the authentication state changes
   useEffect(() => {
-    setIsAuthenticated(isLoggedIn);
+    setKey((prevKey) => prevKey + 1);
   }, [isLoggedIn]);
 
   return (
@@ -108,7 +108,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/buy" element={<BuyForm />} />
-          <Route path="/login" element={<Login key={isAuthenticated ? 'loggedIn' : 'loggedOut'} />} />
+          <Route path="/login" element={<Login key={key} />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/email" element={<Email />} />
