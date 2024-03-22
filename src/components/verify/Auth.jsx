@@ -74,7 +74,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   // Initial user state set to null to trigger update on first render
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
 
   const storeTokenInLS = (serverToken) => {
     setToken(serverToken);
