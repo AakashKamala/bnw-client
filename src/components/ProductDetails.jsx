@@ -18,7 +18,7 @@ function ProductDetails() {
   const { setOrderData } = useContext(OrderContext);
 
   useEffect(() => {
-    fetchUserData(); // Fetch the latest user data before proceeding
+    fetchUserData();
   }, [fetchUserData]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function ProductDetails() {
           ...prevOrderData,
           productId: _id,
           totalPrice: response.data.price,
-          selectedSize: 'S', // Set default size in orderData
+          selectedSize: 'S',
         }));
       } catch (error) {
         // Handle error

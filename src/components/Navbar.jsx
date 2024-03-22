@@ -32,12 +32,6 @@ function Navbar() {
                                 <NavLink to="/login">Login</NavLink>
                             </li>
                         </>)}
-          {/* <li>
-            <NavLink to="/orders">Orders</NavLink>
-          </li>
-          <li>
-            <NavLink to="/search">Search</NavLink>
-          </li> */}
         </ul>
       </div>
     </nav>

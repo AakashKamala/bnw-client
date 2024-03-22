@@ -3,17 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "./verify/Auth";
 import { Link } from "react-router-dom";
 import { baseURL } from "../../url";
-import "./Login.css"; // Import CSS file
+import "./Login.css";
 
 const CustomerLogin = () => {
 
     const navigate = useNavigate();
-    // const { isLoggedIn } = useAuth();
-
-  
-    // if (isLoggedIn) {
-    //     navigate("/");
-    // }
 
     const [user, setUser] = useState({
         email: "",

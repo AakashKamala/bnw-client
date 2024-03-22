@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "./verify/Auth";
 import { Link } from "react-router-dom";
 import { baseURL } from "../../url";
-import "./Login.css"; // Import CSS file
+import "./Login.css";
 
 const Login = () => {
 
@@ -93,7 +93,3 @@ const Login = () => {
 }
 
 export default Login;
-
-
-
-

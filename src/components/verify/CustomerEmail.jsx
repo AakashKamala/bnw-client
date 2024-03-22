@@ -19,8 +19,6 @@ const CustomerEmail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(formData.userId);
-    // console.log(formData.email);
     try {
       const response = await fetch(`${baseURL}/api/auth/email`, {
         method: "PUT",
@@ -31,11 +29,9 @@ const CustomerEmail = () => {
       });
 
       const res_data = await response.json();
-      // console.log(response)
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/buy');
-        // window.location.reload();
       } else {
         alert("error while email");
       }

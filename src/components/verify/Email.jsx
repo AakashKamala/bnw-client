@@ -20,8 +20,6 @@ const Email = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(formData.userId);
-    // console.log(formData.email);
     try {
       const response = await fetch(`${baseURL}/api/auth/email`, {
         method: "PUT",
@@ -36,7 +34,6 @@ const Email = () => {
       if (response.ok) {
         setFormData({ ...formData, email: '' });
         navigate('/');
-        // window.location.reload();
         // toast.success("sign up successful")
       } else {
         toast.error("error while email");
