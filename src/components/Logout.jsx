@@ -60,6 +60,29 @@
 
 
 
+// import React, { useEffect } from "react";
+// import { Navigate } from "react-router-dom";
+// import { useAuth } from "./verify/Auth";
+
+// const Logout = () => {
+//   const { isLoggedIn, LogoutUser } = useAuth();
+
+//   useEffect(() => {
+//     LogoutUser();
+//   }, [LogoutUser]);
+
+//   // If the user is not logged in, redirect to the login page
+//   if (!isLoggedIn) {
+//     return <Navigate to="/login" />;
+//   }
+
+//   return null; // Render nothing while logging out
+// };
+
+// export default Logout;
+
+
+
 import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "./verify/Auth";
@@ -71,12 +94,7 @@ const Logout = () => {
     LogoutUser();
   }, [LogoutUser]);
 
-  // If the user is not logged in, redirect to the login page
-  if (!isLoggedIn) {
-    return <Navigate to="/login" />;
-  }
-
-  return null; // Render nothing while logging out
+  return isLoggedIn ? null : <Navigate to="/login" />;
 };
 
 export default Logout;

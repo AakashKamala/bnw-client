@@ -98,13 +98,23 @@ export const AuthProvider = ({ children }) => {
     return localStorage.setItem("token", serverToken);
   };
 
-  let isLoggedIn = !!token;
+  // let isLoggedIn = !!token;
 
-  const LogoutUser = () => {
-    setToken("");
-    setUser(""); // Reset the user state when logging out
-    return localStorage.removeItem("token");
-  };
+  // const LogoutUser = () => {
+  //   setToken("");
+  //   setUser(""); // Reset the user state when logging out
+  //   return localStorage.removeItem("token");
+  // };
+
+  // Inside the AuthProvider component
+const [isLoggedIn, setIsLoggedIn] = useState(!!token);
+
+const LogoutUser = () => {
+  setToken("");
+  setUser(""); // Reset the user state when logging out
+  setIsLoggedIn(false); // Update the isLoggedIn state
+  return localStorage.removeItem("token");
+};
 
   const userAuthentication = async () => {
     try {
