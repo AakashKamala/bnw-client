@@ -7,6 +7,9 @@ import { OrderContext } from './components/ProductDetails.jsx';
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+import { inject } from '@vercel/analytics';
+inject();
+
 const Main = () => {
   const [orderData, setOrderData] = useState(() => {
     const storedOrderData = localStorage.getItem('orderData');
