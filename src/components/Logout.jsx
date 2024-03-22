@@ -9,6 +9,9 @@ const Logout = () => {
     LogoutUser();
   }, [LogoutUser]);
 
+  useEffect(() => {
+  }, [isLoggedIn]);
+
   return isLoggedIn ? null : <Navigate to="/login" />;
 };
 
