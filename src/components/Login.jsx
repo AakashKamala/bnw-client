@@ -8,12 +8,6 @@ import "./Login.css"; // Import CSS file
 const Login = () => {
 
     const navigate = useNavigate();
-    // const { isLoggedIn } = useAuth();
-
-    // if (isLoggedIn) {
-    //     navigate("/");
-    // }
-
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -49,7 +43,6 @@ const Login = () => {
                 storeTokenInLS(res_data.token);
                 setUser({ email: "", password: "" });
                 navigate("/");
-                // window.location.reload();
             } else {
                 console.error("Invalid credentials");
             }

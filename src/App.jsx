@@ -84,19 +84,12 @@ import CustomerEmail from './components/verify/CustomerEmail';
 import Logout from './components/Logout';
 import Profile from './components/Profile';
 
-import { useAuth } from './components/verify/Auth';
+// import { useAuth } from './components/verify/Auth';
 import EditCustomerDetails from './components/EditCustomerDetails';
 import CustomerLogin from './components/CustomerLogin';
 import Footer from './components/Footer';
 
 function App() {
-  const { isLoggedIn } = useAuth();
-  const [key, setKey] = useState(0);
-
-  // Re-render the Login component whenever the authentication state changes
-  useEffect(() => {
-    setKey((prevKey) => prevKey + 1);
-  }, [isLoggedIn]);
 
   return (
     <Router>
@@ -108,7 +101,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/buy" element={<BuyForm />} />
-          <Route path="/login" element={<Login key={key} />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/email" element={<Email />} />
